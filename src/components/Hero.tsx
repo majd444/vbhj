@@ -51,24 +51,11 @@ const Hero = ({ onOpenAuth }: HeroProps) => {
         
         <div className="relative max-w-5xl mx-auto">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/50 p-8 md:p-12">
-            <div className="bg-gradient-to-r from-slate-100 to-gray-100 rounded-xl p-6 md:p-8">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-              </div>
-              <div className="text-left space-y-4">
-                <div className="bg-blue-600 text-white p-3 rounded-lg inline-block">
-                  Hello! How can I help you today?
-                </div>
-                <div className="bg-white p-3 rounded-lg ml-8 shadow-sm">
-                  I need help planning a marketing strategy for my startup.
-                </div>
-                <div className="bg-blue-600 text-white p-3 rounded-lg inline-block">
-                  I'd be happy to help! Let's start by understanding your target audience and unique value proposition...
-                </div>
-              </div>
-            </div>
+            <img 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=600&fit=crop&crop=center"
+              alt="AI Chatbot Interface"
+              className="w-full h-64 md:h-80 object-cover rounded-xl shadow-lg"
+            />
           </div>
         </div>
       </div>
