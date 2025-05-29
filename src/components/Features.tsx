@@ -1,9 +1,19 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Bot, Brain, Database, Code2, BarChart3, Settings, Layers, TrendingUp } from "lucide-react";
+import { Bot, Brain, Database, Code2, BarChart3, Settings, Layers, TrendingUp, Clock, MessageSquare, Globe } from "lucide-react";
 
 const Features = () => {
   const features = [
+    {
+      icon: Clock,
+      title: "24/7 Availability",
+      description: "Your AI agents work around the clock, all week long, ensuring your customers always get instant responses and support."
+    },
+    {
+      icon: MessageSquare,
+      title: "Multi-Platform Support",
+      description: "Deploy on WhatsApp, Meta (Facebook/Instagram), Discord, WordPress, and any website seamlessly."
+    },
     {
       icon: Bot,
       title: "Custom AI Agents",
@@ -43,6 +53,16 @@ const Features = () => {
       icon: TrendingUp,
       title: "Continuous Learning",
       description: "Agents improve over time by learning from interactions and feedback."
+    },
+    {
+      icon: Globe,
+      title: "Website Integration",
+      description: "Easily embed your AI agents on any website with our simple integration tools and APIs."
+    },
+    {
+      icon: MessageSquare,
+      title: "Cross-Platform Messaging",
+      description: "Manage all customer conversations from WhatsApp, Meta platforms, Discord, and more in one dashboard."
     }
   ];
 
@@ -54,7 +74,7 @@ const Features = () => {
             Powerful Features
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Everything you need to build, deploy, and manage AI agents for your business
+            Everything you need to build, deploy, and manage AI agents for your business. Work 24/7 all week with support for WhatsApp, Meta, Discord, WordPress, and website integration.
           </p>
         </div>
         
