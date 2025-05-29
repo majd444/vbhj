@@ -16,15 +16,15 @@ const Hero = ({ onOpenAuth }: HeroProps) => {
           No-Code AI Agent Platform
         </Badge>
         
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent leading-tight">
-          Create and Manage Your
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <span className="text-gray-900">Create and Manage Your</span>
           <br />
-          <span className="relative">
+          <span className="relative text-gray-900">
             AI Agents
             <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </span>
           <br />
-          with Ease
+          <span className="text-gray-900">with Ease</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
