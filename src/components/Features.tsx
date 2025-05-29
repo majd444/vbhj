@@ -1,62 +1,72 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Bot, Brain, Shield, Users, Zap, MessageSquare } from "lucide-react";
+import { Bot, Brain, Database, Code2, BarChart3, Settings, Layers, TrendingUp } from "lucide-react";
 
 const Features = () => {
   const features = [
     {
       icon: Bot,
-      title: "Advanced AI Models",
-      description: "Powered by state-of-the-art language models that understand context and nuance."
+      title: "Custom AI Agents",
+      description: "Create and customize AI agents tailored to your specific business needs and use cases."
     },
     {
       icon: Brain,
-      title: "Intelligent Responses",
-      description: "Get thoughtful, relevant answers that adapt to your conversation style."
+      title: "Natural Conversations",
+      description: "Engage users with natural, context-aware conversations powered by advanced language models."
     },
     {
-      icon: Zap,
-      title: "Lightning Fast",
-      description: "Experience near-instant responses with our optimized infrastructure."
+      icon: Database,
+      title: "Knowledge Base Integration",
+      description: "Connect your agents to your existing knowledge base to provide accurate, up-to-date information."
     },
     {
-      icon: Shield,
-      title: "Privacy First",
-      description: "Your conversations are encrypted and never stored without permission."
+      icon: Code2,
+      title: "No-Code Builder",
+      description: "Design and deploy AI agents without writing a single line of code using our intuitive interface."
     },
     {
-      icon: Users,
-      title: "Multi-User Support",
-      description: "Collaborate with team members and share insights seamlessly."
+      icon: BarChart3,
+      title: "Analytics Dashboard",
+      description: "Track performance metrics and gain insights into how users interact with your AI agents."
     },
     {
-      icon: MessageSquare,
-      title: "Rich Conversations",
-      description: "Support for text, images, and files to enhance your interactions."
+      icon: Settings,
+      title: "Advanced Configuration",
+      description: "Fine-tune your agents with advanced settings for optimal performance and accuracy."
+    },
+    {
+      icon: Layers,
+      title: "Multi-Model Support",
+      description: "Choose from various AI models to power your agents based on your specific requirements."
+    },
+    {
+      icon: TrendingUp,
+      title: "Continuous Learning",
+      description: "Agents improve over time by learning from interactions and feedback."
     }
   ];
 
   return (
-    <section id="features" className="py-24 bg-white/50">
+    <section id="features" className="py-24 bg-gradient-to-br from-slate-50 via-blue-50/30 to-purple-50/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">
             Powerful Features
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Everything you need to have meaningful, productive conversations with AI
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Everything you need to build, deploy, and manage AI agents for your business
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 backdrop-blur-sm hover:scale-105">
-              <CardContent className="p-8">
-                <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+            <Card key={index} className="border-0 shadow-lg hover:shadow-2xl transition-all duration-300 bg-white/80 backdrop-blur-sm hover:scale-105 group">
+              <CardContent className="p-6">
+                <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-12 h-12 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <feature.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg font-bold mb-3 text-gray-900">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm">{feature.description}</p>
               </CardContent>
             </Card>
           ))}

@@ -1,9 +1,5 @@
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { MessageSquare, Zap, Shield, Users, ArrowRight, Sparkles, Bot, Brain } from "lucide-react";
 import AuthModal from "@/components/AuthModal";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -14,7 +10,7 @@ const Index = () => {
   const [authModal, setAuthModal] = useState<"login" | "signup" | null>(null);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-white via-blue-50/30 to-purple-50/30">
       <Header onOpenAuth={setAuthModal} />
       <Hero onOpenAuth={setAuthModal} />
       <Features />
