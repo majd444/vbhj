@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { MessageSquare, Mail, Lock, User } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
+import { useAuth0 } from "../hooks/use-auth0";
 
 interface AuthModalProps {
   type: "login" | "signup" | null;
@@ -19,6 +20,9 @@ const AuthModal = ({ type, onClose, onSwitchType }: AuthModalProps) => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  
+  // Use Auth0 hooks for authentication
+  const { loginWithRedirect, isAuthenticated, isLoading: auth0IsLoading } = useAuth0();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,10 +43,57 @@ const AuthModal = ({ type, onClose, onSwitchType }: AuthModalProps) => {
   };
 
   const handleSocialLogin = async (provider: string) => {
-    toast({
-      title: `${provider} login`,
-      description: `${provider} authentication will be implemented with Supabase integration.`,
-    });
+    try {
+      // Show loading toast first
+      toast({
+        title: `Redirecting to Auth0`,
+        description: "Please wait while we redirect you to the login page."
+      });
+      
+      console.log(`Redirecting to Auth0 Universal Login...`);
+      
+      // Configure the login based on the provider
+      const authParams: Record<string, string | undefined | boolean> = {
+        // Set screen_hint based on whether this is signup or login
+        screen_hint: type === "signup" ? "signup" : undefined,
+        // Always use the login prompt to ensure the user sees the login page
+        prompt: "login",
+      };
+      
+      // Add connection parameter for specific social providers
+      if (provider === "Google") {
+        authParams.connection = "google-oauth2";
+      } else if (provider === "Facebook") {
+        authParams.connection = "facebook";
+      } else if (provider === "Apple") {
+        authParams.connection = "apple";
+      }
+      
+      // Log the auth parameters for debugging
+      console.log('Auth parameters:', authParams);
+      
+      // Redirect to Auth0 login page
+      await loginWithRedirect({
+        authorizationParams: authParams
+      });
+      
+      // Close the modal since we're redirecting
+      onClose();
+    } catch (error) {
+      console.error("Authentication error:", error);
+      
+      // More detailed error handling
+      let errorMessage = "There was a problem authenticating.";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+      
+      toast({
+        title: "Authentication Error",
+        description: errorMessage,
+        variant: "destructive"
+      });
+    }
   };
 
   if (!type) return null;
