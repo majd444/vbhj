@@ -9,7 +9,7 @@ interface HeaderProps {
 }
 
 const Header = ({ onOpenAuth }: HeaderProps) => {
-  const { isAuthenticated, user, logout, loginWithRedirect } = useAuth0();
+  const { isAuthenticated, user, logout, loginWithRedirect: _loginWithRedirect } = useAuth0();
   
   useEffect(() => {
     console.log("Auth state:", { isAuthenticated, user });

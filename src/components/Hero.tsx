@@ -1,7 +1,6 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Sparkles, Bot, MessageSquare, Users } from "lucide-react";
+import { ArrowRight, Bot, Users } from "lucide-react";
 
 interface HeroProps {
   onOpenAuth: (type: "login" | "signup") => void;
@@ -19,12 +18,9 @@ const Hero = ({ onOpenAuth }: HeroProps) => {
         <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
           <span className="text-gray-900">Create and Manage Your</span>
           <br />
-          <span className="relative text-gray-900">
+          <span className="text-gray-900">
             AI Agents
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
           </span>
-          <br />
-          <span className="text-gray-900">with Ease</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-4xl mx-auto leading-relaxed">
@@ -33,23 +29,27 @@ const Hero = ({ onOpenAuth }: HeroProps) => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <Button
-            size="lg"
-            onClick={() => onOpenAuth("signup")}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group shadow-lg hover:shadow-xl transition-all duration-300"
-          >
-            Get Started for Free
-            <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            onClick={() => onOpenAuth("login")}
-            className="border-2 border-gray-300 hover:border-blue-500 px-8 py-4 text-lg hover:bg-blue-50 transition-all duration-300"
-          >
-            <Users className="mr-2 h-5 w-5" />
-            Sign In
-          </Button>
+          <div className="flex flex-col gap-4 w-full max-w-md mx-auto">
+            <Button
+              size="lg"
+              onClick={() => onOpenAuth("signup")}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 text-lg group shadow-lg hover:shadow-xl transition-all duration-300 w-full"
+            >
+              Get Started for Free
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            
+            <div className="relative flex items-center justify-center my-2">
+              <div className="absolute inset-0 flex items-center">
+                <div className="w-full border-t border-gray-300"></div>
+              </div>
+              <div className="relative flex justify-center text-sm">
+                <span className="px-2 bg-white text-gray-500">Or continue with</span>
+              </div>
+            </div>
+            
+            {/* Google Sign In Button - Coming Soon */}
+          </div>
         </div>
         
         <div className="relative max-w-6xl mx-auto">
@@ -63,10 +63,10 @@ const Hero = ({ onOpenAuth }: HeroProps) => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">AI Assistant</h4>
-                    <p className="text-sm text-green-500 flex items-center gap-1">
+                    <div className="text-sm text-green-500 flex items-center gap-1">
                       <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       Online now
-                    </p>
+                    </div>
                   </div>
                 </div>
                 

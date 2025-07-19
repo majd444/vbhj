@@ -1,13 +1,13 @@
 
-import { useState } from "react";
+import React, { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { MessageSquare, Mail, Lock, User } from "lucide-react";
-import { toast } from "@/hooks/use-toast";
-import { useAuth0 } from "../hooks/use-auth0";
+import { toast } from "@/components/ui/use-toast";
 
 interface AuthModalProps {
   type: "login" | "signup" | null;
@@ -22,7 +22,7 @@ const AuthModal = ({ type, onClose, onSwitchType }: AuthModalProps) => {
   const [isLoading, setIsLoading] = useState(false);
   
   // Use Auth0 hooks for authentication
-  const { loginWithRedirect, isAuthenticated, isLoading: auth0IsLoading } = useAuth0();
+  const { loginWithRedirect: _loginWithRedirect, isAuthenticated: _isAuthenticated, isLoading: _auth0IsLoading } = useAuth0();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

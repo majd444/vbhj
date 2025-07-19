@@ -7,12 +7,12 @@ interface Auth0ProviderWithHistoryProps {
 }
 
 const Auth0ProviderWithHistory = ({ children }: Auth0ProviderWithHistoryProps) => {
-  // Get Auth0 configuration from environment variables
-  const domain = import.meta.env.VITE_AUTH0_DOMAIN as string;
-  const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID as string;
-  const audience = import.meta.env.VITE_AUTH0_AUDIENCE as string;
-  const redirectUri = import.meta.env.VITE_AUTH0_REDIRECT_URI as string || window.location.origin;
-  const scope = import.meta.env.VITE_AUTH0_SCOPE as string || 'openid profile email';
+  // Development defaults - replace these with your actual Auth0 credentials
+  const domain = import.meta.env.VITE_AUTH0_DOMAIN || 'dev-xxxxxxxx.us.auth0.com';
+  const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID || 'your-client-id';
+  const audience = import.meta.env.VITE_AUTH0_AUDIENCE || 'your-audience';
+  const redirectUri = import.meta.env.VITE_AUTH0_REDIRECT_URI || window.location.origin;
+  const scope = import.meta.env.VITE_AUTH0_SCOPE || 'openid profile email';
 
   const navigate = useNavigate();
 

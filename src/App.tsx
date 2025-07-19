@@ -10,11 +10,11 @@ import { useAuth0 } from "./hooks/use-auth0";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const { isLoading } = useAuth0();
-  
-  if (isLoading) {
-    return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
-  }
+  // Temporarily disable auth loading state for development
+  // const { isLoading } = useAuth0();
+  // if (isLoading) {
+  //   return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
+  // }
   
   return (
   <QueryClientProvider client={queryClient}>
