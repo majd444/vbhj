@@ -9,7 +9,8 @@
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
-    "serve": "http-server dist -p 8080 -a localhost"
+    "serve": "http-server dist -p 8080 -a localhost",
+    "vercel-build": "node vercel-build.js"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.3.0",

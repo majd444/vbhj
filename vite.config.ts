@@ -3,9 +3,8 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/vbhj/',  // Add this line for GitHub Pages
+  base: '/',
   server: {
     host: "::",
     port: 8080,
@@ -31,5 +30,26 @@ export default defineConfig(({ mode }) => ({
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          html, body, #root {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+          }
+        `
+      }
+    }
+  }
 }));
